@@ -1,34 +1,34 @@
-# =====================================================
+
 # IRIS DATASET ANALYSIS DASHBOARD
 # Using Seaborn + Streamlit
-# =====================================================
+
 
 import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# -----------------------------------------------------
+
 # PAGE CONFIG
-# -----------------------------------------------------
+
 st.set_page_config(
     page_title="Iris Dataset Dashboard",
     page_icon="🌸",
     layout="wide"
 )
 
-# -----------------------------------------------------
+
 # LOAD DATA
-# -----------------------------------------------------
+
 @st.cache_data
 def load_data():
     return sns.load_dataset("iris")
 
 df = load_data()
 
-# -----------------------------------------------------
+
 # SIDEBAR
-# -----------------------------------------------------
+
 st.sidebar.title("Navigation")
 
 page = st.sidebar.radio(
@@ -41,9 +41,9 @@ page = st.sidebar.radio(
     ]
 )
 
-# -----------------------------------------------------
+
 # DATASET OVERVIEW
-# -----------------------------------------------------
+
 if page == "Dataset Overview":
 
     st.title("🌸 Iris Dataset Dashboard")
@@ -89,9 +89,9 @@ if page == "Dataset Overview":
         mime="text/csv"
     )
 
-# -----------------------------------------------------
+
 # STATISTICS PAGE
-# -----------------------------------------------------
+
 elif page == "Statistics":
 
     st.title("📊 Statistical Summary")
@@ -102,9 +102,9 @@ elif page == "Statistics":
 
     st.dataframe(df["species"].value_counts())
 
-# -----------------------------------------------------
+
 # VISUALIZATION PAGE
-# -----------------------------------------------------
+
 elif page == "Visualizations":
 
     st.title("📈 Iris Dataset Visualizations")
@@ -242,9 +242,9 @@ elif page == "Visualizations":
 
         st.pyplot(fig)
 
-# -----------------------------------------------------
+
 # INSIGHTS PAGE
-# -----------------------------------------------------
+
 elif page == "Insights":
 
     st.title("💡 Key Insights")
@@ -269,7 +269,7 @@ elif page == "Insights":
 
     7. Petal measurements are the strongest predictors of species classification.
 
-    ### Conclusion
+     Conclusion
 
     The Iris dataset demonstrates clear species differentiation,
     especially through petal length and petal width.
